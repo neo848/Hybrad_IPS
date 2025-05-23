@@ -20,8 +20,8 @@ Ce projet implémente un système hybride de détection d'intrusion (IPS) combin
 
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/neo848/Hybrade_IPS.git
-   cd Hybrade_IPS
+   git clone https://github.com/neo848/Hybrad_IPS.git
+   cd Hybrad_IPS
    ```
 
 2. Installez les dépendances :
