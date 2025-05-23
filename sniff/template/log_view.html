@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ log_type }} Log</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f5f5f5;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .back-link {
+            margin: 20px 0;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <a href="{{ url_for('list_logs') }}" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Logs
+    </a>
+    
+    <h2>{{ log_type }} Log</h2>
+    
+    <div style="margin-bottom: 20px;">
+        <a href="{{ url_for('download_log', log_type=log_type.lower()) }}" 
+           class="button">
+            <i class="fas fa-download"></i> Download CSV
+        </a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                {% for header in headers %}
+                <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

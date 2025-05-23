@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log Files</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .log-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .log-card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .log-card:hover {
+            transform: scale(1.05);
+        }
+        .log-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Log Files</h1>
+    <a href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+    
+    <div class="log-container">
+        <div class="log-card" onclick="window.location='{{ url_for('view_log', log_type='traffic') }}'">
+            <i class="fas fa-network-wired log-icon"></i>
+            <h3>Traffic Logs</h3>
+            <p>View network activity</p>
+        </div>
+        
+        <div class="log-card" onclick="window.location='{{ url_for('view_log', log_type='blocked') }}'">
+            <i class="fas fa-ban log-icon"></i>
+            <h3>Blocked IPs</h3>
+            <p>View blocked addresses</p>
+        </div>
+        
+        <div class="log-card" onclick="window.location='{{ url_for('view_log', log_type='web') }}'">
+            <i class="fas fa-file-alt log-icon"></i>
+            <h3>Web Logs</h3>
+            <p>View web login attempts</p>
+        </div>
+    </div>
+</body>
+</html>
