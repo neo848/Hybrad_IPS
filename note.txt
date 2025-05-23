@@ -1,0 +1,1 @@
+sudo -E /home/neo/Desktop/IPS/.venv/bin/python /home/neo/Desktop/IPS/sniff/main.py
